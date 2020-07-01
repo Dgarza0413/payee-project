@@ -1,11 +1,12 @@
 import React from 'react'
 import data from '../data/sample.json';
 
+import Table from '../components/Table';
+
 const Dashboard = () => {
-    console.log(data)
     return (
         <div>
-            This is the dashboard
+            <Table payee={data} />
         </div>
     )
 }
