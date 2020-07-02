@@ -2,6 +2,7 @@ import React from 'react'
 import data from '../data/sample.json';
 import Address from '../components/Address';
 import Reciever from '../components/Payee';
+import PaymentCard from '../components/Payment';
 
 const Detail = (props) => {
     const dataId = parseInt(props.match.params.id)
@@ -12,6 +13,7 @@ const Detail = (props) => {
         <>
             <Reciever payee={Payee} />
             <Address address={Payee.Address} />
+            <PaymentCard payment={Payment} />
         </>
     )
 }
