@@ -1,7 +1,7 @@
 import React from 'react'
 import { Sparklines, SparklinesBars } from 'react-sparklines';
 
-const LineSummary = ({ data }) => {
+const BarSummary = ({ data }) => {
     return (
         <Sparklines data={data}>
             <SparklinesBars color="#1c8cdc" />
@@ -9,4 +9,4 @@ const LineSummary = ({ data }) => {
     )
 }
 
-export default LineSummary
+export default BarSummary

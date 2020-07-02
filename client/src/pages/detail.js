@@ -15,16 +15,16 @@ const Detail = (props) => {
     const dataId = parseInt(props.match.params.id)
     const { Payee, Payment, Remittance } = data.find((e, i) => i === dataId)
 
-    console.log(sum)
-
     const totalRemittance = () => {
         let total = 0
         let arr = [];
         let arr2 = [];
+
         Remittance.map(e => {
             arr.push(total += parseInt(e.Amount.replace(/[^a-zA-Z0-9]/g, '')))
             arr2.push(parseInt(e.Amount.replace(/[^a-zA-Z0-9]/g, '')))
         })
+
         setSum(arr.reduce((acc, cur) => acc + cur))
         setSeries({
             runningTotal: arr,
