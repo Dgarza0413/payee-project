@@ -6,9 +6,7 @@ const RemittanceTable = ({ remittance }) => {
             <thead>
                 <tr>
                     {Object.keys(remittance[0]).map((e, i) => {
-                        return (
-                            <th key={i}>{e}</th>
-                        )
+                        return <th key={i}>{e}</th>
                     })}
                 </tr>
             </thead>
@@ -18,9 +16,7 @@ const RemittanceTable = ({ remittance }) => {
                         <>
                             <tr>
                                 {Object.values(e).map((e, i) => {
-                                    return (
-                                        <td key={i}>{e}</td>
-                                    )
+                                    return <td key={i}>{e}</td>
                                 })}
                             </tr>
                         </>

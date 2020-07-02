@@ -1,10 +1,10 @@
 import React from 'react'
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import { Sparklines, SparklinesBars } from 'react-sparklines';
 
 const LineSummary = ({ data }) => {
     return (
         <Sparklines data={data}>
-            <SparklinesLine color="blue" />
+            <SparklinesBars color="#1c8cdc" />
         </Sparklines>
     )
 }
