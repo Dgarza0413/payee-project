@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Table = ({ payee }) => {
+    console.log(payee)
     return (
         <table>
             <thead>
@@ -9,7 +10,6 @@ const Table = ({ payee }) => {
                     <th>Name</th>
                     <th>Phone</th>
                     <th>SubbmissionDate</th>
-                    {/* {Object.keys(payee.Payee)} */}
                 </tr>
             </thead>
             <tbody>
@@ -17,9 +17,9 @@ const Table = ({ payee }) => {
                     return (
                         <tr key={i}>
                             <td>
-                                {/* <Link to={`/detail/${i}`}> */}
-                                {e.Payee.Name}
-                                {/* </Link> */}
+                                <Link to={`/detail/${i}`}>
+                                    {e.Payee.Name}
+                                </Link>
                             </td>
                             <td>
                                 {e.Payee.Phone}
