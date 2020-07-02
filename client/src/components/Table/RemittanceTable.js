@@ -5,9 +5,9 @@ const RemittanceTable = ({ remittance }) => {
         <table>
             <thead>
                 <tr>
-                    {Object.keys(remittance[0]).map(e => {
+                    {Object.keys(remittance[0]).map((e, i) => {
                         return (
-                            <th>{e}</th>
+                            <th key={i}>{e}</th>
                         )
                     })}
                 </tr>
@@ -15,15 +15,15 @@ const RemittanceTable = ({ remittance }) => {
             <tbody>
                 {remittance.map(e => {
                     return (
-                        <tr>
-                            {Object.values(e).map(e => {
-                                return (
-                                    <td>
-                                        {e}
-                                    </td>
-                                )
-                            })}
-                        </tr>
+                        <>
+                            <tr>
+                                {Object.values(e).map((e, i) => {
+                                    return (
+                                        <td key={i}>{e}</td>
+                                    )
+                                })}
+                            </tr>
+                        </>
                     )
                 })}
             </tbody>

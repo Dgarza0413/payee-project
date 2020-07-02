@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import data from '../data/sample.json';
 import Address from '../components/Address';
 import Reciever from '../components/Payee';
@@ -12,9 +13,11 @@ const Detail = (props) => {
 
     return (
         <>
+            <Link to={`/`}>Go Back</Link>
             <Reciever payee={Payee} />
             <Address address={Payee.Address} />
             <PaymentCard payment={Payment} />
+            <div>Need total transactions</div>
             <Remittances remittance={Remittance} />
         </>
     )

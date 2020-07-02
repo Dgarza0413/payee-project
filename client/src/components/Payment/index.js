@@ -1,13 +1,17 @@
 import React from 'react'
 
+import { Container, PaymentCard } from './styles';
+
 const Payment = ({ payment }) => {
     const { CVV, Exp, PAN } = payment
     return (
-        <div>
-            <p>{CVV}</p>
-            <p>{Exp}</p>
-            <p>{PAN}</p>
-        </div>
+        <Container>
+            <PaymentCard>
+                <p>CVV:{CVV}</p>
+                <p>Exp:{Exp}</p>
+                <p>PAN:{PAN}</p>
+            </PaymentCard>
+        </Container>
     )
 }
 
