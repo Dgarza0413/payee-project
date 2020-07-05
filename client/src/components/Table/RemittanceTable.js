@@ -1,8 +1,10 @@
 import React from 'react'
 
+import Table from 'react-bootstrap/Table';
+
 const RemittanceTable = ({ remittance }) => {
     return (
-        <table>
+        <Table striped bordered hover borderless={true}>
             <thead>
                 <tr>
                     {Object.keys(remittance[0]).map((e, i) => {
@@ -23,7 +25,7 @@ const RemittanceTable = ({ remittance }) => {
                     )
                 })}
             </tbody>
-        </table>
+        </Table>
     )
 }
 

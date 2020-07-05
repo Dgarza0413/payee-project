@@ -1,23 +1,42 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const Search = () => {
-    const [filterData, setFilterData] = useState({})
+import InputGroup from 'react-bootstrap/InputGroup';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import FormControl from 'react-bootstrap/FormControl';
 
-    console.log(filterData)
+const Search = ({ payee, setValue, value, setFilterData }) => {
+    // const [filterData, setFilterData] = useState({})
+
+    // console.log(filterData)
 
     const searchData = (e) => {
-        setFilterData({ [e.target.name]: e.target.value })
+        setValue(e)
+    }
+
+    const handleChange = (e) => {
+        setFilterData({ "search": e.target.value })
     }
 
     return (
-        <div>
-            <label>Search</label>
-            <input
-                name={'search'}
-                value={filterData.search || ''}
-                onChange={searchData}
-            />
-        </div>
+        <InputGroup className="mb-3" onChange={handleChange} name={"search"}>
+            <DropdownButton
+                as={InputGroup.Prepend}
+                variant="outline-secondary"
+                title={value || 'Name'}
+                id="input-group-dropdown-1"
+            >
+                {Object.keys(payee[0].Payee).map(e => (
+                    (e === "Address")
+                        ? ""
+                        : <Dropdown.Item
+                            onSelect={() => searchData(e)}
+                            key={e}>{e}</Dropdown.Item>
+                ))
+                }
+            </DropdownButton>
+            <FormControl aria-describedby="basic-addon1" />
+        </InputGroup>
     )
 }
 

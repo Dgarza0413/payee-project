@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { css } from '@emotion/styled';
 import DropdownMenu from '../Dropdown';
+import Search from '../Search';
 import Table from 'react-bootstrap/Table';
 
 import './styles.css';
@@ -12,6 +13,8 @@ const TableDisplay = ({ payee }) => {
     const [filterData, setFilterData] = useState({
         search: ''
     })
+
+    console.log(filterData)
 
     const handleSort = (value, data) => {
         console.log("handle Sort clicked")
@@ -28,22 +31,13 @@ const TableDisplay = ({ payee }) => {
 
     return (
         <>
-            {/* <div style={{
-                padding: '5px',
-
-            }}> */}
-            <DropdownMenu
+            <Search
                 payee={payee}
                 setValue={setDropdownValue}
+                setFilterData={setFilterData}
                 value={dropdownValue}
             />
-            <label>Search</label>
-            <input
-                name={'search'}
-                value={filterData.search}
-                onChange={searchData}
-            />
-            {/* </div> */}
+
             <Table striped bordered hover>
                 <thead>
                     <tr>

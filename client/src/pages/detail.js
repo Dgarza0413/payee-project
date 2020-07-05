@@ -5,16 +5,20 @@ import Address from '../components/Address';
 import Reciever from '../components/Payee';
 import PaymentCard from '../components/Payment';
 import Remittances from '../components/Remittance';
+import MapLayout from '../components/Map';
 
 import LineSummary from '../components/UI/Sparklines';
 import BarSummary from '../components/UI/Sparkbars';
-import ModalDialog from '../components/Modal';
+import TotalSum from '../components/Total';
 
-import { GridTwo, GridThree, RecieverArea, AddressArea } from '../utils/styles';
+import ModalDialog from '../components/Modal';
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 
 const Detail = (props) => {
     const [sum, setSum] = useState()
@@ -46,27 +50,38 @@ const Detail = (props) => {
     return (
         <Container>
             <Row>
-                <Col sm={6}>
-                    <Link to={`/`}>Go Back</Link>
+                <Col sm={12}>
+                    <Breadcrumb>
+                        <Breadcrumb.Item>
+                            <Link to={'/'}>
+                                Home
+                            </Link>
+                        </Breadcrumb.Item>
+                        <Breadcrumb.Item active>{`Detail - ${Payee.Name}`}</Breadcrumb.Item>
+                    </Breadcrumb>
+                </Col>
+                <Col sm={6} className="mb-3">
                     <Reciever payee={Payee} />
                 </Col>
                 <Col sm={6}>
                     <PaymentCard payment={Payment} />
                 </Col>
-                <Col sm={6}>
+                <Col sm={6} className="mb-3">
+                    <MapLayout />
+                </Col>
+                <Col sm={6} className="mb-3">
                     <Address address={Payee.Address} />
                 </Col>
-                <Col sm={6}></Col>
-                <Col sm={4}>
-                    <div>total transactions: ${sum}</div>
+                <Col sm={4} className="mb-3">
+                    <TotalSum sum={sum} />
                 </Col>
-                <Col sm={4}>
+                <Col sm={4} className="mb-3">
                     <LineSummary data={series.runningTotal} />
                 </Col>
-                <Col sm={4}>
+                <Col sm={4} className="mb-3">
                     <BarSummary data={series.series} />
                 </Col>
-                <Col sm={12}>
+                <Col sm={12} className="mb-3">
                     <Remittances remittance={Remittance} />
                 </Col>
             </Row>
