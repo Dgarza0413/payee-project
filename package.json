@@ -2,6 +2,9 @@
   "name": "payee-project",
   "version": "1.0.0",
   "main": "server.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": "git@github.com:Dgarza0413/payee-project.git",
   "author": "David Garza <dgarza0413@gmail.com>",
   "license": "MIT",
