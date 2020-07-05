@@ -1,9 +1,9 @@
 require('dotenv').config();
+const compression = require("compression")
 const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001
-const compression = require("compression")
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -16,11 +16,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get('*', (req, res) => {
-    if (process.env.NODE_ENV === "production") {
-        res.sendFile(path.join(__dirname + "client/build/index.html"));
-    } else {
-        res.sendFile(path.join(__dirname + "client/public/index.html"));
-    }
+    res.sendFile(path.join(__dirname, "/client/build/index.html"));
 });
 
 // Start the API server
