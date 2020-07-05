@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "cd client && yarn run build",
+    "heroku-postbuild": "yarn run build"
   },
   "repository": "git@github.com:Dgarza0413/payee-project.git",
   "author": "David Garza <dgarza0413@gmail.com>",
