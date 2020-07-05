@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001
 const compression = require("compression")
@@ -14,9 +15,12 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
 }
 
-app.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
-    // res.sendFile(path.join(__dirname, "./client/build/index.html"));
+app.get('*', (req, res) => {
+    if (process.env.NODE_ENV === "production") {
+        res.sendFile(path.join(__dirname + "client/build/index.html"));
+    } else {
+        res.sendFile(path.join(__dirname + "client/public/index.html"));
+    }
 });
 
 // Start the API server
