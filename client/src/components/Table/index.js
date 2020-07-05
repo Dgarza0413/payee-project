@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { css } from '@emotion/styled';
+import DropdownMenu from '../Dropdown';
+import Table from 'react-bootstrap/Table';
 
-const Table = ({ payee }) => {
+import './styles.css';
+
+const TableDisplay = ({ payee }) => {
+    const { Payee, Payment, Remittance } = payee
+    const [dropdownValue, setDropdownValue] = useState()
     const [filterData, setFilterData] = useState({
         search: ''
     })
+
     const handleSort = (value, data) => {
         console.log("handle Sort clicked")
-        console.log(value)
-        console.log(data)
+        data.sort((a, b) => {
+            console.log(a.Payee.value)
+            console.log(a)
+            // return a.value - b
+        })
     }
 
     const searchData = (e) => {
@@ -17,26 +28,36 @@ const Table = ({ payee }) => {
 
     return (
         <>
+            {/* <div style={{
+                padding: '5px',
+
+            }}> */}
+            <DropdownMenu
+                payee={payee}
+                setValue={setDropdownValue}
+                value={dropdownValue}
+            />
             <label>Search</label>
             <input
                 name={'search'}
                 value={filterData.search}
                 onChange={searchData}
             />
-            <table>
+            {/* </div> */}
+            <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Attention</th>
+                        <th onClick={() => handleSort("Attention", payee)}>Attention</th>
                         <th onClick={() => handleSort("Name", payee)}>Name</th>
-                        <th>Phone</th>
-                        <th>Fax</th>
-                        <th>SubmissionDate</th>
+                        <th onClick={() => handleSort("Phone", payee)}>Phone</th>
+                        <th onClick={() => handleSort("Fax", payee)}>Fax</th>
+                        <th onClick={() => handleSort("SubmissionDate", payee)}>SubmissionDate</th>
                     </tr>
                 </thead>
                 <tbody>
                     {payee.filter(e => {
                         return filterData
-                            ? e.Payee.Name
+                            ? e.Payee[dropdownValue || "Name"]
                                 .toLowerCase()
                                 .startsWith(filterData.search)
                             : e
@@ -56,9 +77,9 @@ const Table = ({ payee }) => {
                         )
                     })}
                 </tbody>
-            </table>
+            </Table>
         </>
     )
 }
 
-export default Table
+export default TableDisplay

@@ -1,17 +1,15 @@
 import React from 'react'
 import data from '../data/sample.json';
 
-import Table from '../components/Table';
+import TableDisplay from '../components/Table';
+
+import Container from 'react-bootstrap/Container';
 
 const Dashboard = () => {
-
     return (
-        <div>
-            <button>To add?</button>
-            <button>To remove?</button>
-            <div>Payees Table</div>
-            <Table payee={data} />
-        </div>
+        <Container>
+            <TableDisplay payee={data} />
+        </Container>
     )
 }
 

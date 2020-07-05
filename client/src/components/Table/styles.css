@@ -1,0 +1,7 @@
+.row-item-bg:nth-child(2n){
+    background-color: gainsboro;
+}
+
+.row-item{
+    padding: 5%;
+}

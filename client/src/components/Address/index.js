@@ -11,7 +11,6 @@ const Address = ({ address }) => {
     } = address
     return (
         <div>
-            This is the address box
             <p>Address: {Address1}</p>
             <p>Address2: {Address2}</p>
             <p>City: {City}</p>

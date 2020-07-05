@@ -8,6 +8,13 @@ import Remittances from '../components/Remittance';
 
 import LineSummary from '../components/UI/Sparklines';
 import BarSummary from '../components/UI/Sparkbars';
+import ModalDialog from '../components/Modal';
+
+import { GridTwo, GridThree, RecieverArea, AddressArea } from '../utils/styles';
+
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const Detail = (props) => {
     const [sum, setSum] = useState()
@@ -37,16 +44,33 @@ const Detail = (props) => {
     }, [])
 
     return (
-        <>
-            <Link to={`/`}>Go Back</Link>
-            <Reciever payee={Payee} />
-            <Address address={Payee.Address} />
-            <PaymentCard payment={Payment} />
-            <div>total transactions: ${sum}</div>
-            <LineSummary data={series.runningTotal} />
-            <BarSummary data={series.series} />
-            <Remittances remittance={Remittance} />
-        </>
+        <Container>
+            <Row>
+                <Col sm={6}>
+                    <Link to={`/`}>Go Back</Link>
+                    <Reciever payee={Payee} />
+                </Col>
+                <Col sm={6}>
+                    <PaymentCard payment={Payment} />
+                </Col>
+                <Col sm={6}>
+                    <Address address={Payee.Address} />
+                </Col>
+                <Col sm={6}></Col>
+                <Col sm={4}>
+                    <div>total transactions: ${sum}</div>
+                </Col>
+                <Col sm={4}>
+                    <LineSummary data={series.runningTotal} />
+                </Col>
+                <Col sm={4}>
+                    <BarSummary data={series.series} />
+                </Col>
+                <Col sm={12}>
+                    <Remittances remittance={Remittance} />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
