@@ -1,0 +1,11 @@
+{
+  "name": "payee-project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:Dgarza0413/payee-project.git",
+  "author": "David Garza <dgarza0413@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
