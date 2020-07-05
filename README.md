@@ -11,7 +11,13 @@ Upload your sample to a private Github account or email to hr@paymerang.com
 
 
 # Synopsis
-I will be using reacted on the front end side to render any possible json key value onto the dom that can also be controlled via the backend if our data slugs become to high to control
+I used react, react router on the front end along with bootstrap and emotion to control some of the css. I used a server to serve the react file when we deploy to heroku. This project was about coming up with some certain ways of displaying data in an organized fashion as well as some metrics that the data is telling us.
+
+## landing page
+The first page is the display of all clients and a count of the current vendors. I added a search component to filter the object property values via Object.keys that is routed to the individuals json index via a find js method
+
+## detail page
+the detail page is a display of the single payee, payment, and remittance properties. I used bootstrap forms to organize the contact info from the address and payment data into grid. I added a map component however did not add a geoencoder api search for time limitations to implement. I used sparklines to manage a total sum figure of all remittance, a rolling total from a time perspective and a individual bar graph for each instance on a scalable perspective. 
 
 ### Technologies used
 
@@ -19,4 +25,5 @@ front end
 react
 react-router
 emotion
+bootstrap
 
